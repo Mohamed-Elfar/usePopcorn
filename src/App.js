@@ -15,6 +15,7 @@ import ErrorMessage from "./components/ErrorMessage";
 
 const key = "580da9c3";
 
+// Force rebuild for HTTPS fix
 export default function App() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
