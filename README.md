@@ -14,9 +14,7 @@ A modern React application for discovering movies and managing your personal wat
 
 ## 🚀 Live Demo
 
-Deploy this app to Vercel in one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/usepopcorn)
+[Live Demo](https://use-popcorn-yzv6.vercel.app/)
 
 ## 🛠️ Technologies Used
 
