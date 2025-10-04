@@ -14,7 +14,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     Title: title,
     Year: year,
     Poster: poster,
-    RunTime: runtime,
+    Runtime: runtime,
     imdbRating,
     Plot: plot,
     Released: released,
@@ -30,7 +30,9 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       year,
       poster,
       imdbRating: Number(imdbRating),
-      runtime: Number(runtime?.split(" ").at(0)),
+      runtime: runtime && runtime.includes("min") 
+        ? Number(runtime.split(" ")[0]) 
+        : 0,
       userRating,
     };
     onAddWatched(newWatchedMovie);

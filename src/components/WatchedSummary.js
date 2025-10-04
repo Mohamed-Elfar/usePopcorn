@@ -1,10 +1,10 @@
 const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+  arr.length === 0 ? 0 : arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 function WatchedSummary({ watched }) {
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating));
-  const avgRuntime = average(watched.map((movie) => movie.runtime));
+  const avgImdbRating = average(watched.map((movie) => movie.imdbRating).filter(rating => !isNaN(rating)));
+  const avgUserRating = average(watched.map((movie) => movie.userRating).filter(rating => !isNaN(rating)));
+  const avgRuntime = average(watched.map((movie) => movie.runtime).filter(runtime => !isNaN(runtime) && runtime > 0));
 
   return (
     <div className="summary">
@@ -24,7 +24,7 @@ function WatchedSummary({ watched }) {
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime.toFixed(0)} min</span>
+          <span>{isNaN(avgRuntime) ? "0" : avgRuntime.toFixed(0)} min</span>
         </p>
       </div>
     </div>
