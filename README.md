@@ -11,6 +11,9 @@ A modern React application for discovering movies and managing your personal wat
 - **Statistics Dashboard**: View statistics about your watched movies
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Component-Based Architecture**: Clean, modular React components
+- **Local Storage Persistence**: Watchlist is persisted to localStorage so your data survives page reloads
+- **Keyboard Shortcuts**: Press `Enter` to quickly search and `Escape` to close movie details (implemented with event listeners)
+- **Custom Hooks Practice**: Project includes patterns that are ready to be refactored into custom hooks (recommended exercise)
 
 ## 🚀 Live Demo
 
@@ -69,6 +72,13 @@ This project demonstrates practical usage of several React concepts:
 - **Event Handler Pattern**: Events bubble up through callback props
 - **Custom Hooks Potential**: Reusable stateful logic (can be extracted)
 
+### Hooks Practiced
+
+- **useState** — local component state (queries, lists, selection)
+- **useEffect** — side effects: data fetching, event listeners, and cleanup with AbortController
+- **useRef** — (used or readily addable) for focusing inputs and storing mutable values
+- **Custom Hooks** — the codebase is a great starting point to extract reusable hooks such as `useLocalStorage`, `useFetch`, and `useKeyPress`
+
 ### State Management Patterns
 
 - **Derived State**: Calculating values from existing state
@@ -94,6 +104,10 @@ src/
 │   ├── WatchedMovie.js     # Individual watched movie item
 │   ├── WatchedMoviesList.js # Watched movies list
 │   └── WatchedSummary.js   # Watchlist statistics
+├── hooks/                 # Reusable custom hooks
+│   ├── useKey.js           # Keyboard key listener hook (Enter/Escape)
+│   ├── useLocalStorageState.js # State synced with localStorage
+│   └── useMovies.js        # Encapsulated movie fetching logic
 ├── App.js                  # Main application component
 ├── StarRating.jsx          # Reusable star rating component
 ├── index.css              # Global styles
@@ -221,7 +235,6 @@ const key = process.env.REACT_APP_OMDB_API_KEY || "your-fallback-key";
 ## 🔮 Future Enhancements
 
 - [ ] Add debounced search to reduce API calls
-- [ ] Implement local storage for watchlist persistence
 - [ ] Add movie recommendations
 - [ ] Include trailer integration
 - [ ] Add user authentication
